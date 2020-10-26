@@ -13,11 +13,6 @@ public class AdvSqrtTest {
         Assert.assertEquals(advSqrt.sqrt(Double.NaN),Double.NaN);
     }
 
-    @Test
-    void testInfinite() {
-        AdvSqrt advSqrt = new AdvSqrt();
-        Assert.assertEquals(advSqrt.sqrt(Double.POSITIVE_INFINITY), Double.POSITIVE_INFINITY);
-    }
 
     @Test
     void testMaxValue(){
@@ -46,5 +41,13 @@ public class AdvSqrtTest {
     @Test
     void testNegativeZero() {
 
+    }
+
+    @Test
+    void testPlusInfinity()
+    {
+        AdvSqrt test = new AdvSqrt();
+        double result = test.sqrt(Double.POSITIVE_INFINITY);
+        assertEquals(result, Double.POSITIVE_INFINITY);
     }
 }
