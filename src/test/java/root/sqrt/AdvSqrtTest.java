@@ -7,13 +7,6 @@ import static org.testng.Assert.*;
 
 public class AdvSqrtTest {
 
-
-//    @Test
-//    void roundTest(){
-//        AdvSqrt advSqrt=new AdvSqrt();
-//        Sqrt sqrt=new Sqrt();
-//        Assert.assertEquals(advSqrt.sqrt(33),sqrt.sqrt(33));
-//    }
     @Test
     void testNaN(){
         AdvSqrt advSqrt=new AdvSqrt();
@@ -25,5 +18,18 @@ public class AdvSqrtTest {
         AdvSqrt advSqrt=new AdvSqrt();
         Sqrt sqrt=new Sqrt();
         Assert.assertEquals(advSqrt.sqrt(Double.POSITIVE_INFINITY),Double.POSITIVE_INFINITY);
+    void testNonZeroNegative() {
+        AdvSqrt impl = new AdvSqrt();
+
+        double negInfRes = impl.sqrt(Double.NEGATIVE_INFINITY);
+        assertTrue(Double.isNaN(negInfRes));
+
+        double regularNegativeRes = impl.sqrt(-6.67);
+        assertTrue(Double.isNaN(regularNegativeRes));
+    }
+
+    @Test
+    void testNegativeZero() {
+
     }
 }

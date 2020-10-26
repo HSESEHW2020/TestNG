@@ -11,6 +11,7 @@ repositories {
 }
 
 test {
+    useTestNG()
     finalizedBy jacocoTestReport // report is always generated after tests run
 }
 jacocoTestReport {
