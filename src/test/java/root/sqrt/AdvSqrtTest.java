@@ -25,7 +25,8 @@ public class AdvSqrtTest {
     @Test
     void testNaN(){
         AdvSqrt advSqrt=new AdvSqrt();
-        Assert.assertEquals(advSqrt.sqrt(Double.NaN),Double.NaN);
+        boolean check=Double.isNaN(advSqrt.sqrt(Double.NaN));
+        Assert.assertTrue(check);
     }
 
 
@@ -39,7 +40,8 @@ public class AdvSqrtTest {
     @Test
     void testMinValue(){
         AdvSqrt advSqrt = new AdvSqrt();
-        Assert.assertEquals(advSqrt.sqrt(Double.MIN_VALUE),Double.NaN);
+        Sqrt sqrt=new Sqrt();
+        Assert.assertEquals(advSqrt.sqrt(Double.MIN_VALUE),sqrt.sqrt(Double.MIN_VALUE));
     }
 
     @Test

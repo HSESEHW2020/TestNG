@@ -43,6 +43,7 @@ public class AdvSqrt extends Sqrt
 
             while(Math.abs(x-res*res)/x > eps)
             {
+                System.out.println(Math.abs(x-res*res)/x);
                 i++;
                 tmp = res;
                 res = (tmp + x/tmp)/2;
