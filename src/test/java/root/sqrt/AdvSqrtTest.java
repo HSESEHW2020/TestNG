@@ -39,11 +39,6 @@ public class AdvSqrtTest {
     }
 
     @Test
-    void testNegativeZero() {
-
-    }
-
-    @Test
     void testPlusInfinity()
     {
         AdvSqrt test = new AdvSqrt();
