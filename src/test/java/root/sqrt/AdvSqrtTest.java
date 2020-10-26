@@ -18,6 +18,8 @@ public class AdvSqrtTest {
         AdvSqrt advSqrt=new AdvSqrt();
         Sqrt sqrt=new Sqrt();
         Assert.assertEquals(advSqrt.sqrt(Double.POSITIVE_INFINITY),Double.POSITIVE_INFINITY);
+    }
+    @Test
     void testNonZeroNegative() {
         AdvSqrt impl = new AdvSqrt();
 
