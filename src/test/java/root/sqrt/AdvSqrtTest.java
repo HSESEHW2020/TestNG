@@ -27,6 +27,12 @@ public class AdvSqrtTest {
     }
 
     @Test
+    void testMinValue(){
+        AdvSqrt advSqrt = new AdvSqrt();
+        Assert.assertEquals(advSqrt.sqrt(Double.MIN_VALUE),Double.NaN);
+    }
+
+    @Test
     void testNonZeroNegative() {
         AdvSqrt impl = new AdvSqrt();
 
