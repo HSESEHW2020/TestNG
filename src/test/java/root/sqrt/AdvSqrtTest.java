@@ -41,4 +41,12 @@ public class AdvSqrtTest {
     void testNegativeZero() {
 
     }
+
+    @Test
+    void testPlusInfinity()
+    {
+        AdvSqrt test = new AdvSqrt();
+        double result = test.sqrt(Double.POSITIVE_INFINITY);
+        assertTrue(result == Double.POSITIVE_INFINITY);
+    }
 }
