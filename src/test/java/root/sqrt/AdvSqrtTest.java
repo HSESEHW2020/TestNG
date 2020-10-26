@@ -8,6 +8,21 @@ import static org.testng.Assert.*;
 public class AdvSqrtTest {
 
     @Test
+    void testBasicCorrectness() {
+        AdvSqrt impl = new AdvSqrt();
+        Sqrt sampleImpl = new Sqrt();
+
+
+        double res = impl.sqrt(4);
+
+        assertEquals(res, 2.0);
+        assertEquals(res, sampleImpl.sqrt(4));
+
+        double square = 443.78;
+        assertEquals(impl.sqrt(square), sampleImpl.sqrt(square));
+    }
+
+    @Test
     void testNaN(){
         AdvSqrt advSqrt=new AdvSqrt();
         Assert.assertEquals(advSqrt.sqrt(Double.NaN),Double.NaN);
