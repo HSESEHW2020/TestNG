@@ -7,11 +7,21 @@ import static org.testng.Assert.*;
 
 public class AdvSqrtTest {
 
+    static void assertDoubleEquals(double actual, double expected) {
+        long fd = Double.doubleToLongBits(actual);
+        long sd = Double.doubleToLongBits(expected);
+
+        System.out.println(fd);
+
+        if (!(((fd <= 0 && sd <= 0) || (fd > 0 && sd > 0)) && Math.abs(fd - sd) <= 1)) {
+            fail("expected [" + expected + "] but found [" + actual + "]");
+        }
+    }
+
     @Test
     void testBasicCorrectness() {
         AdvSqrt impl = new AdvSqrt();
         Sqrt sampleImpl = new Sqrt();
-
 
         double res = impl.sqrt(4);
 
@@ -19,29 +29,28 @@ public class AdvSqrtTest {
         assertEquals(res, sampleImpl.sqrt(4));
 
         double square = 443.78;
-        assertEquals(impl.sqrt(square), sampleImpl.sqrt(square));
+        assertDoubleEquals(impl.sqrt(square), sampleImpl.sqrt(square));
     }
 
     @Test
-    void testNaN(){
-        AdvSqrt advSqrt=new AdvSqrt();
-        boolean check=Double.isNaN(advSqrt.sqrt(Double.NaN));
+    void testNaN() {
+        AdvSqrt advSqrt = new AdvSqrt();
+        boolean check = Double.isNaN(advSqrt.sqrt(Double.NaN));
         Assert.assertTrue(check);
     }
 
-
     @Test
-    void testMaxValue(){
+    void testMaxValue() {
         AdvSqrt advSqrt = new AdvSqrt();
-        Sqrt sqrt=new Sqrt();
-        Assert.assertEquals(advSqrt.sqrt(Double.MAX_VALUE),sqrt.sqrt(Double.MAX_VALUE));
+        Sqrt sqrt = new Sqrt();
+        Assert.assertEquals(advSqrt.sqrt(Double.MAX_VALUE), sqrt.sqrt(Double.MAX_VALUE));
     }
 
     @Test
-    void testMinValue(){
+    void testMinValue() {
         AdvSqrt advSqrt = new AdvSqrt();
-        Sqrt sqrt=new Sqrt();
-        Assert.assertEquals(advSqrt.sqrt(Double.MIN_VALUE),sqrt.sqrt(Double.MIN_VALUE));
+        Sqrt sqrt = new Sqrt();
+        Assert.assertEquals(advSqrt.sqrt(Double.MIN_VALUE), sqrt.sqrt(Double.MIN_VALUE));
     }
 
     @Test
@@ -56,10 +65,24 @@ public class AdvSqrtTest {
     }
 
     @Test
-    void testPlusInfinity()
-    {
+    void testPlusInfinity() {
         AdvSqrt test = new AdvSqrt();
         double result = test.sqrt(Double.POSITIVE_INFINITY);
         assertEquals(result, Double.POSITIVE_INFINITY);
+    }
+
+    @Test
+    void testNegativeZero() {
+
+    }
+
+    @Test
+    void testPositiveZero() {
+
+    }
+
+    @Test
+    void testOne() {
+
     }
 }
