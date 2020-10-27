@@ -39,6 +39,7 @@ public class AdvSqrtTest {
         Assert.assertTrue(check);
     }
 
+
     @Test
     void testMaxValue() {
         AdvSqrt advSqrt = new AdvSqrt();
@@ -73,16 +74,22 @@ public class AdvSqrtTest {
 
     @Test
     void testNegativeZero() {
-
+        AdvSqrt test = new AdvSqrt();
+        double result= test.sqrt(-0.0);
+        assertEquals(Double.doubleToLongBits(-0.0),Double.doubleToLongBits(result));
     }
 
     @Test
     void testPositiveZero() {
-
+        AdvSqrt test = new AdvSqrt();
+        double result= test.sqrt(0.0);
+        assertEquals(Double.doubleToLongBits(0.0),Double.doubleToLongBits(result));
     }
 
     @Test
     void testOne() {
-
+        AdvSqrt test = new AdvSqrt();
+        double result = test.sqrt(1);
+        assertEquals(result,1);
     }
 }
