@@ -1,0 +1,13 @@
+Bug #1.
+    1)  while (Math.abs(x - res * res) / x > eps ) {
+                       i++;
+                       tmp = res;
+                       res = (tmp + x / tmp) / 2;
+                   }
+    2) 443.78
+    3) Метод зацикливается
+    4) while (Math.abs(x - res * res) / x > eps && i < 5) { //Ограничение цикла пятью итерациями
+                       i++;
+                       tmp = res;
+                       res = (tmp + x / tmp) / 2;
+                   }
